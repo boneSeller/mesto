@@ -57,28 +57,36 @@
 }
 
 .cards__description {
-    padding: 0;
+    padding: 25px 15px 31px 21px;
     margin: 0;
     background-color: #FFFFFF;
-    display: flex;
-    justify-content: space-between;
+    display: flex; 
+    justify-content: space-between; 
 }
 
 .cards__text {
     padding: 0;
-    margin: 25px 0 31px 21px;
+    margin: 0;
     font-family: Inter;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
-    line-height: 29px
+    line-height: 29px;
+    text-overflow: ellipsis;
 }
 
 .cards__like {
     padding: 0;
     margin: 0; 
-    border: 1px black;
-    content: '';
+    background-image: url('/image/like.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFFFFF;
+    background-size: 100%;
+    width: 22px;
+    height: 100%;
+    border: none;
+
 }
 
 .copyright {
