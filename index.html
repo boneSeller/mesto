@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="page/index.css">
     <title>Document</title>
 </head>
+
 <body class="page">
     <div class="container">
         <header class="header">
@@ -13,13 +15,15 @@
         </header>
         <main class="main">
             <section class="profile">
-                <div class="profile__avatar"></div>
                 <div class="profile__info">
-                    <div class="profile__name">Жак-Ив Кусто</div>
-                    <div class="profile__description">Исследователь океана</div>
+                    <img class="profile__avatar" alt='аватар' src="image/image.svg">
+                    <div class="profile__description">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <p class="profile__job">Исследователь океана</p>
+                    </div>
                     <button class="profile__edit"></button>
                 </div>
-                <div class="profile__button"></div>
+                <button class="profile__button"></button>
             </section>
             <section class="elements">
                 <div class="cards">
@@ -44,7 +48,7 @@
                     </div>
                 </div>
                 <div class="cards">
-                    <img class="cards__image" src="image/elbrus.svg" alt="Гора Эльбрус">
+                    <img class="cards__image" src="../mesto/image/karch.svg" alt="Гора Эльбрус">
                     <div class="cards__description">
                         <h1 class="cards__text">Гора Эльбрус</h1>
                         <button class="cards__like"></button>
@@ -71,4 +75,5 @@
         </footer>
     </div>
 </body>
+
 </html>
