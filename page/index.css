@@ -7,14 +7,16 @@
 }
 
 .container{
-    min-width: 880px;
+    width: 880px;
     margin: 45px 200px 0;
     padding: 0;
 }
 
+
 @media screen and (max-width: 1279px) {
     .container {
-        margin: 28px 0 0;
+        width: 282px;
+        margin: 28px 19px 0;
     }
 }
 
@@ -28,6 +30,13 @@
     border-bottom: 1px solid rgba(84,84,84, 0.7);
 }
 
+@media screen and (max-width: 1279px) {
+    .header {
+        min-height: 56px;
+        margin-left: 8px;
+    }
+}
+
 .logo {
     margin: 0;
     padding: 0;
@@ -37,8 +46,10 @@
 
 @media screen and (max-width: 1279px) {
     .logo {
-        max-width: 103.74px;
-        margin-left: 27px;
+        width: 103.74px;
+        height: 24.4px;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -51,12 +62,29 @@
     align-items: center;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile {
+        margin: 42px 0 0;
+        flex-flow: column;
+    }
+}
+
+
 .profile__info {
     margin: 0;
     padding: 0;
     display: flex;
     flex-flow: row;
-    align-items: center;
+    
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__info {
+        min-width: 282px;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+      }
 }
 
 .profile__avatar {
@@ -65,14 +93,31 @@
     border-radius: 50%;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile__avatar {
+        margin: 0;
+        padding: 0;
+        width: 120px;
+        height: 120px;
+    }
+}
+
 
 .profile__description {
-    margin: 0 18px 0 0;
+    margin: 0;
     padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 24px;
+}
+
+.profile__name-string {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
 }
 
 .profile__name {
-    margin: 0;
+    margin: 20px 0 0;
     padding: 0;
     font-family: Inter;
     font-style: normal;
@@ -82,8 +127,18 @@
     color: #FFFFFF;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile__name {
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+    margin: 26px 0 0;
+    justify-self: center;
+    }
+}
+
 .profile__job {
-    margin: 16px 0 0;
+    margin: 10px 0 0;
     padding: 0;
     font-family: Inter;
     font-style: normal;
@@ -93,17 +148,54 @@
     color: #FFFFFF;
 }
 
+@media screen and (max-width: 1279px) {
+    .profile__job {
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+    }
+}
+
 .profile__edit {
     background-image: url('../image/pan.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #000;
-    padding: 0;
-    margin: 0;
     border: 1px solid #FFFFFF;
     width: 24px;
     height: 24px;
-    margin: 0 0 22px 6px;
+    margin: 0 0 16px 18px;
+    padding: 0;
+    align-self: flex-end;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__edit{
+        width: 18px;
+        height: 18px;
+        margin: 0 0 14px 10px;
+    }
+}
+
+.profile__button {
+    background-color: #000;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    width: 150px;
+    height: 50px;
+    background-image: url("../image/plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__button {
+        margin: 36px 0 0;
+        width: 100%;
+        background-size: 16px 16px;
+    }
 }
 
 .popup {
@@ -115,8 +207,6 @@
     left: 0;
     display: none;
 }
-
-
 
 .popup__opened{
     display: block;
@@ -134,7 +224,7 @@
     background-color: #FFFFFF;
     width: 358px;
     height: 259px;
-    margin: 0;
+    margin: -130px 0 0;
     padding: 34px 36px 37px ;
     position: relative;
     display: flex;
@@ -142,6 +232,16 @@
     border-radius: 10px;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
+
+@media screen and (max-width: 1279px) {
+    .popup__content {
+        width: 257px;
+        height: 300px;
+        margin: 0;
+        padding: 25px 22px;
+    }
+}
+
 .popup__close{
     background-image: url('../image/Close.svg');
     background-color: #000;
@@ -152,7 +252,15 @@
     width: 32px;
     height: 32px;
     border: none;
+}
 
+@media screen and (max-width: 1279px) {
+    .popup__close {
+        width: 20px;
+        height: 20px;
+        right: 0;
+        top: -41px;
+    }
 }
 
 .popup__title {
@@ -165,8 +273,17 @@
     line-height: 29px;
     color: #000000;
 }
+
+@media screen and (max-width: 1279px) {
+    .popup__title {
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
 .popup__name{
     margin: 54px 0 0;
+    padding: 0 0 10px;
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -176,8 +293,16 @@
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+@media screen and (max-width: 1279px) {
+    .popup__name{
+        margin: 70px 0 0;
+    }
+}
+
 .popup__job{
     margin: 30px 0 0;
+    padding: 0 0 10px;
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -187,6 +312,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+
 .popup__save {
     margin: 48px 0 0;
     padding: 0;
@@ -195,21 +321,24 @@
     background-color: #000;
     color: #FFFFFF;
     align-self: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
 }
 
-
-.profile__button {
-    background-color: #000;
-    border: 2px solid #FFFFFF;
-    border-radius: 2px;
-    width: 150px;
-    height: 50px;
-    background-image: url("../image/plus.svg");
-    background-position: center;
-    background-repeat: no-repeat;
+@media screen and (max-width: 1279px) {
+    .popup__save {
+        margin: 45px 0 0;
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
-
-
 
 
 .elements {
@@ -220,6 +349,13 @@
     grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
     gap: 20px 17px;
     
+}
+
+@media screen and (max-width: 1279px) {
+    .elements {
+        margin: 36px 0 0;
+        gap: 20px;
+    }
 }
 
 .cards {
@@ -291,4 +427,12 @@
     font-size: 18px;
     line-height: 22px;
     color: #545454;
+}
+
+@media screen and (max-width: 1279px) {
+    .copyright { 
+        margin: 48px 0 0;
+        font-size: 14px;
+        line-height: 17px;
+    }
 }

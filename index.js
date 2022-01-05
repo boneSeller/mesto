@@ -5,6 +5,8 @@ let popupName = document.querySelector('.popup__name');
 let popupJob = document.querySelector('.popup__job');
 let popupSave = document.querySelector('.popup__save');
 
+    
+
 popupOpen.addEventListener('click', function() {
     popup.classList.add('popup__opened');
 }
