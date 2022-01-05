@@ -1,25 +1,41 @@
+@import url('../vendor/font/font-face.css');
+
 .page {
     background-color: #000;
+    margin: 0;
+    padding: 0;
 }
 
 .container{
-    max-width: 880px;
+    min-width: 880px;
     margin: 45px 200px 0;
     padding: 0;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .container {
         margin: 28px 0 0;
     }
 }
 
 
-.logo {
+.header {
     margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    min-height: 74px;
+    border-bottom: 1px solid rgba(84,84,84, 0.7);
 }
 
-@media screen and (max-width: 1280px) {
+.logo {
+    margin: 0;
+    padding: 0;
+    width: 142px;
+    height: 33px;
+}
+
+@media screen and (max-width: 1279px) {
     .logo {
         max-width: 103.74px;
         margin-left: 27px;
@@ -32,6 +48,7 @@
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .profile__info {
@@ -80,17 +97,119 @@
     background-image: url('../image/pan.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100%;
     background-color: #000;
-    padding: 7px 7px;
+    padding: 0;
     margin: 0;
     border: 1px solid #FFFFFF;
-    width: 10px;
-    height: 10px;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 22px 6px;
 }
 
-.profile__button {
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    display: none;
 }
+
+
+
+.popup__opened{
+    display: block;
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+
+.popup__content{
+    background-color: #FFFFFF;
+    width: 358px;
+    height: 259px;
+    margin: 0;
+    padding: 34px 36px 37px ;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+.popup__close{
+    background-image: url('../image/Close.svg');
+    background-color: #000;
+    background-size: 100%;
+    position: absolute;
+    right: -44px;
+    top: -42px;
+    width: 32px;
+    height: 32px;
+    border: none;
+
+}
+
+.popup__title {
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+.popup__name{
+    margin: 54px 0 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.popup__job{
+    margin: 30px 0 0;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.popup__save {
+    margin: 48px 0 0;
+    padding: 0;
+    width: 358px;
+    height: 50px;
+    background-color: #000;
+    color: #FFFFFF;
+    align-self: center;
+}
+
+
+.profile__button {
+    background-color: #000;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    width: 150px;
+    height: 50px;
+    background-image: url("../image/plus.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
 
 
 .elements {
@@ -104,6 +223,8 @@
 }
 
 .cards {
+    width: 282px;
+    height: 361px;
     margin: 0;
     padding: 0;
     border-radius: 10px;
@@ -113,19 +234,21 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    background-color: #FFFFFF;
 }
 
 .cards__image {
     max-width: 100%;
-    width: 100%;
-    height: 100%;
+    width: 282px;
+    height: 282px;
     object-fit: cover;
     
 }
 
 .cards__description {
-    padding: 25px 15px 31px 21px;
-    margin: 0;
+    padding: 0;
+    margin: 25px 15px 0 21px;
+    width: 246px;
     background-color: #FFFFFF;
     display: flex; 
     justify-content: space-between; 
@@ -140,22 +263,32 @@
     font-size: 24px;
     line-height: 29px;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .cards__like {
     padding: 0;
-    margin: 0; 
+    margin: 0 5px 0 0; 
     background-image: url('../image/like.svg');
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
     background-size: 100%;
-    width: 22px;
+    min-width: 22px;
     height: 100%;
     border: none;
 
 }
 
 .copyright {
-    color:#545454
+    margin: 66px 0 0;
+    padding: 0;
+    color:#545454;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
 }
