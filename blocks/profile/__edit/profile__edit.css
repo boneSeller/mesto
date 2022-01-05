@@ -1,0 +1,20 @@
+.profile__edit {
+    background-image: url('../../../image/pan.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #000;
+    border: 1px solid #FFFFFF;
+    width: 24px;
+    height: 24px;
+    margin: 0 0 16px 18px;
+    padding: 0;
+    align-self: flex-end;
+}
+
+@media screen and (max-width: 1279px) {
+    .profile__edit{
+        width: 18px;
+        height: 18px;
+        margin: 0 0 14px 10px;
+    }
+}
