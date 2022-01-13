@@ -18,65 +18,54 @@
                 <div class="profile__info">
                     <img class="profile__avatar" alt='аватар' src="image/image.svg">
                     <div class="profile__description">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
-                        <button class="profile__edit"></button>
+                        <h1 class="profile__name">Жак-Ив Кусо</h1>
+                        <button class="profile__edit" type="button"></button>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
-                    <div class="popup">
-                        <div class="popup__body">
-                            <div class="popup__content">
-                                <button class="popup__close"></button>
-                                <h1 class="popup__title">Редактировать профиль</h1>
-                                <input class="popup__name" value="Жак-Ив Кусто" type="text">
-                                <input class="popup__job" value="Исследователь океана" type="text">
-                                <button class="popup__save">Сохранить</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <button class="profile__button"></button>
+                <button class="profile__button" type="button"></button>
             </section>
             <section class="elements">
                 <div class="cards">
                     <img class="cards__image" src="image/kar.jpg" alt="Карачаевск">
                     <div class="cards__description">
-                        <h1 class="cards__text">Карачаевск</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Карачаевск</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
                 <div class="cards">
                     <img class="cards__image" src="image/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="cards__description">
-                        <h1 class="cards__text">Гора Эльбрус</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Гора Эльбрус</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
                 <div class="cards">
                     <img class="cards__image" src="image/dombai.jpg" alt="Домбай">
                     <div class="cards__description">
-                        <h1 class="cards__text">Домбай</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Домбай</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
                 <div class="cards">
                     <img class="cards__image" src="image/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="cards__description">
-                        <h1 class="cards__text">Гора Эльбрус</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Гора Эльбрус</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
                 <div class="cards">
                     <img class="cards__image" src="image/dombai.jpg" alt="Домбай">
                     <div class="cards__description">
-                        <h1 class="cards__text">Домбай</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Домбай</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
                 <div class="cards">
                     <img class="cards__image" src="image/kar.jpg" alt="Карачаевск">
                     <div class="cards__description">
-                        <h1 class="cards__text">Карачаево-Черкесская</h1>
-                        <button class="cards__like"></button>
+                        <h2 class="cards__text">Карачаево-Черкесская</h2>
+                        <button class="cards__like" type="button"></button>
                     </div>
                 </div>
             </section>
@@ -84,9 +73,22 @@
         <footer class="footer">
             <p class="copyright">© 2020 Mesto Russia</p>
         </footer>
+        <section class="popup">
+            <div class="popup__body">
+                <div class="popup__content">
+                    <button class="popup__close" type="button"></button>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form"> 
+                        <input class="popup__user popup__user_name" type="text">
+                        <input class="popup__user popup__user_job" type="text">
+                        <button class="popup__save" type="submit">Сохранить</button>
+                    </form>            
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script src="page/index.js"></script>
+    <script src="script/index.js"></script>
 </body>
 
 </html>

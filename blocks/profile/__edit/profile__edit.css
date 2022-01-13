@@ -9,12 +9,17 @@
     margin: 0 0 16px 18px;
     padding: 0;
     align-self: flex-end;
+    cursor: pointer;
+}
+
+.profile__edit:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 1279px) {
     .profile__edit{
         width: 18px;
         height: 18px;
-        margin: 0 0 14px 10px;
+        margin: 0 0 7px 23px;
     }
 }

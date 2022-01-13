@@ -9,6 +9,11 @@
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+    cursor: pointer;
+}
+
+.profile__button:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 1279px) {

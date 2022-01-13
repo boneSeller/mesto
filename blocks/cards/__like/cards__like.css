@@ -9,4 +9,15 @@
     min-width: 22px;
     height: 100%;
     border: none;
+    cursor: pointer;
+}
+
+.cards__like:hover {
+    background-image: #000000;
+    opacity: 0.5;
+}
+
+.cards__like:active {
+    background-image: url('../../../image/active_like.jpg');
+    opacity: 1;
 }

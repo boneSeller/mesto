@@ -6,12 +6,17 @@
     background-color: #000;
     color: #FFFFFF;
     align-self: center;
-    font-family: Inter;
+    font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    cursor: pointer;
+}
+
+.popup__save:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 1279px) {
@@ -23,3 +28,4 @@
         line-height: 17px;
     }
 }
+

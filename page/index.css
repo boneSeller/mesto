@@ -1,3 +1,4 @@
+@import url('/vendor/normalize.css');
 @import url('../vendor/font/font-face.css');
 
 /* PAGE*/
@@ -34,13 +35,14 @@
 /*POPUP*/
 
 @import url('../blocks/popup/popup.css');
-@import url('../blocks/popup/__opened/popup__opened.css');
+@import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__body/popup__budy.css');
 @import url('../blocks/popup/__content/popup__content.css');
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/__title/popup__title.css');
-@import url('../blocks/popup/__name/popup__name.css');
-@import url('../blocks/popup/__job/popup__job.css');
+@import url('../blocks/popup/__user/popup__user.css');
+@import url('../blocks/popup/__user/_name/popup__user_name.css');
+@import url('../blocks/popup/__user/_job/popup__user_job.css');
 @import url('../blocks/popup/__save/popup__save.css');
 
 
