@@ -10,8 +10,8 @@ let formElement = document.querySelector('.popup__form');
 
 
 function openPopup() {
-    nameInput.setAttribute("value", profileName.textContent);
-    jobInput.setAttribute("value",  profileJob.textContent);
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
     popup.classList.add('popup_opened');
 }
 

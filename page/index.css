@@ -13,11 +13,7 @@
 /*HEADER*/
 
 @import url('../blocks/header/header.css');
-
-
-/*LOGO*/
-
-@import url('../blocks/logo/logo.css');
+@import url('../blocks/header/__logo/header__logo.css');
 
 
 /*PROFILE*/
