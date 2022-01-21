@@ -107,10 +107,24 @@ popupCloseCards.addEventListener('click', popupCardsClose);
 
 //ADD CARDS
 
-function addCard(textValue, imageValue) {
+const cardContainer = document.querySelector('.elements');
+
+
+function addCard(textValue, linkValue) {
   const cardTemplate = document.querySelector('#cards-template').content;
   const cardElement = cardTemplate.querySelector('.cards').cloneNode(true);
 
   cardElement.querySelector('.cards__text').textContent = textValue;
-  cardElement.querySelector('cards__image').src = imageValue;
-}
+  cardElement.querySelector('cards__image').src = linkValue;
+  cardContainer.append(cardElement);
+};
+
+
+const savePopupCard = document.querySelector('.popup__save_cards');
+
+savePopupCard.addEventListener('click', function() {
+  const text = document.querySelector('.popup__user_title');
+  const link = document.querySelector('.popup__user_link');
+
+  addCard(text.value, link.value);
+})
