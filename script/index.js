@@ -109,17 +109,40 @@ const popupText = document.querySelector('.popup__user_title');
 const popupLink = document.querySelector('.popup__user_link');
 const formCards = document.querySelector('.popup__form_cards');
 
-console.log(templateCards);
+
+
+
 
 const renderCards = (item) => {
 
   const cardNew = templateCards.cloneNode(true);
-  cardNew.querySelector('.cards__text').textContent = item.name;
-  cardNew.querySelector('.cards__image').src = item.link;
-  console.log(cardNew);
+  const nameCards = cardNew.querySelector('.cards__text');
+  const linkCards =  cardNew.querySelector('.cards__image');
+
+
+  nameCards.textContent = item.name;
+  linkCards.src = item.link;
+
 
   cardContainer.prepend(cardNew);
+
+  const likeButton = document.querySelector('.cards__like');
+  const deleteButton = document.querySelector('.cards__trash');
+
+  likeButton.addEventListener('click', handleLikeButton);
+  deleteButton.addEventListener('click', handleDeleteButton);
+
 }
+
+
+const handleLikeButton = (e) => {
+  e.target.classList.toggle('cards__like_active');
+}
+
+const handleDeleteButton = (e) => {
+  e.target.closest('.cards').remove();
+}
+
 
 function formSubmitHandlerCards(evt) {
   evt.preventDefault(); 
@@ -140,6 +163,4 @@ initialCards.forEach(item => {
 
 formCards.addEventListener('submit', formSubmitHandlerCards);
 
-
-let likeButton = document.querySelector('.cards__like');
 
