@@ -26,7 +26,7 @@
                 <button class="profile__button" type="button"></button>
             </section>
             <section class="elements">
-                <div class="cards">
+                <!-- <div class="cards">
                     <img class="cards__image" src="image/kar.jpg" alt="Карачаевск">
                     <button class="cards__trash" type="button"></button>
                     <div class="cards__description">
@@ -73,7 +73,7 @@
                         <h2 class="cards__text">Карачаево-Черкесская</h2>
                         <button class="cards__like" type="button"></button>
                     </div>
-                </div>
+                </div> -->
 
             </section>
         </main>
@@ -81,15 +81,15 @@
             <p class="footer__copyright">© 2020 Mesto Russia</p>
         </footer>
         <section class="popup popup_profile">
-            <div class="popup__body">
-                <div class="popup__content">
-                    <button class="popup__close" type="button"></button>
+            <div class="popup__body popup__body_profile">
+                <div class="popup__content popup__content_profile">
+                    <button class="popup__close popup__close_profile" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form" name="popupForm"> 
+                    <form class="popup__form popup__form_profile" name="popupForm">
                         <input class="popup__user popup__user_name" type="text" name="userName">
                         <input class="popup__user popup__user_job" type="text" name="userJob">
-                        <button class="popup__save" type="submit">Сохранить</button>
-                    </form>            
+                        <button class="popup__save popup__save_profile" type="submit">Сохранить</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -98,16 +98,18 @@
                 <div class="popup__content popup__content_cards">
                     <button class="popup__close popup__close_cards" type="button"></button>
                     <h2 class="popup__title popup__title_cards">Новое место</h2>
-                    <form class="popup__form popup__form_cards" name="popupForm"> 
-                        <input class="popup__user popup__user_title" type="text" name="cardsName" placeholder="Название">
-                        <input class="popup__user popup__user_link" type="text" name="cardsLink" placeholder="Ссылка на картинку">
+                    <form class="popup__form popup__form_cards" name="popupForm">
+                        <input class="popup__user popup__user_title" type="text" name="cardsName"
+                            placeholder="Название">
+                        <input class="popup__user popup__user_link" type="text" name="cardsLink"
+                            placeholder="Ссылка на картинку">
                         <button class="popup__save popup__save_cards" type="submit">Создать</button>
-                    </form>            
+                    </form>
                 </div>
             </div>
         </section>
     </div>
-    <template id="cards-template"> 
+    <template id="cards__template">
         <div class="cards">
             <img class="cards__image">
             <button class="cards__trash" type="button"></button>
@@ -118,6 +120,7 @@
         </div>
     </template>
     <script src="script/index.js"></script>
+    
 </body>
 
 </html>
