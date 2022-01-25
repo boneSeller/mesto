@@ -150,7 +150,7 @@ const handleImageClick = (e) => {
   const image = e.target;
   const imageUrl = image.src;
   const imageAlt = image.alt;
-  const imageText = document.querySelector('.popup__image__title');
+  const imageText = document.querySelector('.popup__text');
   const imagePopupUrl = document.querySelector('.popup__image'); 
 
   imageText.textContent = imageAlt;
