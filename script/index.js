@@ -30,8 +30,7 @@ popupClose.addEventListener('click', closePopup);
 
 
 
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
+
 function formSubmitHandler(evt) {
     evt.preventDefault(); 
     
@@ -47,7 +46,6 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 
 
-// LIKE 
 
 
 
@@ -108,9 +106,8 @@ const savePopupCard = document.querySelector('.popup__save_cards');
 const popupText = document.querySelector('.popup__user_title');
 const popupLink = document.querySelector('.popup__user_link');
 const formCards = document.querySelector('.popup__form_cards');
-
-
-
+const popupImage = document.querySelector('.popup_image');
+const popupImageClose = document.querySelector('.popup__close_image');
 
 
 const renderCards = (item) => {
@@ -122,6 +119,7 @@ const renderCards = (item) => {
 
   nameCards.textContent = item.name;
   linkCards.src = item.link;
+  linkCards.alt = item.name;
 
 
   cardContainer.prepend(cardNew);
@@ -132,6 +130,10 @@ const renderCards = (item) => {
   likeButton.addEventListener('click', handleLikeButton);
   deleteButton.addEventListener('click', handleDeleteButton);
 
+  const cardsImage = document.querySelector('.cards__image');
+
+  cardsImage.addEventListener('click', handleImageClick);
+  
 }
 
 
@@ -142,6 +144,31 @@ const handleLikeButton = (e) => {
 const handleDeleteButton = (e) => {
   e.target.closest('.cards').remove();
 }
+
+
+const handleImageClick = (e) => {
+  const image = e.target;
+  const imageUrl = image.src;
+  const imageAlt = image.alt;
+  const imageText = document.querySelector('.popup__image__title');
+  const imagePopupUrl = document.querySelector('.popup__image'); 
+
+  imageText.textContent = imageAlt;
+  imagePopupUrl.src = imageUrl;
+  openPopupImage();
+
+
+}
+
+function openPopupImage() {
+  popupImage.classList.add('popup_opened');
+}
+
+function closePopupImage() {
+  popupImage.classList.remove('popup_opened');
+}
+
+popupImageClose.addEventListener('click', closePopupImage);
 
 
 function formSubmitHandlerCards(evt) {
