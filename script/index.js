@@ -1,6 +1,6 @@
 // POPUP PROFILE
 const popupOpenProfile = document.querySelector('.profile__edit');
-const popupProfile = document.querySelector('#popup-profile');
+const popupProfile = document.querySelector('.popup_profile');
 const popupCloseProfile = document.querySelector('.popup__close_profile');
 const nameInput = document.querySelector('.popup__user_name');
 const jobInput = document.querySelector('.popup__user_job');
@@ -9,7 +9,7 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');   
 const formElement = document.querySelector('.popup__form_profile');
 const popupCard = document.querySelector('.popup_cards');
-const popupImage = document.querySelector('#popup-image');
+const popupImage = document.querySelector('.popup_image');
 const popupOpenCards = document.querySelector('.profile__button');
 const popupCloseCards = document.querySelector('.popup__close_cards');
 const imageText = document.querySelector('.popup__text');
