@@ -23,11 +23,11 @@ const popupCloseImage = document.querySelector('.popup__close_image');
 const cardContainer = document.querySelector('.elements');
 
 // PROFILE 
-function dataProfile() {
+const OpenProfilePopup = () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  openPopup(popupProfile)
 }
-
 
 
 function handleSubmitProfileForm(evt) {
@@ -44,7 +44,7 @@ function createCard(name,link) {
   const cardImage = cardNew.querySelector('.cards__image');
   const cardText = cardNew.querySelector('.cards__text');
   cardText.textContent = name;
-  const likeButton = cardNew.querySelector('.cards__like');
+  const cardLike = cardNew.querySelector('.cards__like');
   const deleteButton = cardNew.querySelector('.cards__trash');
   
 
@@ -52,8 +52,8 @@ function createCard(name,link) {
   cardImage.src= link;
 
   
-  likeButton.addEventListener('click', (e) => {
-    e.target.classlist.toggle('cards__like_active');
+  cardLike.addEventListener('click', (e) => {
+    e.target.classList.toggle('cards__like_active')
   })
 
   deleteButton.addEventListener('click', (e) => {
@@ -70,16 +70,12 @@ function createCard(name,link) {
   return cardNew;
 }
 
-  initialCards.forEach(function(item) {
+  initialCards.forEach(createNewCard);
+
+
+  function createNewCard(item) {
     const cardNew = createCard(item.name, item.link);
     cardContainer.prepend(cardNew);
-  });
-
-
-  function createNewCard() {
-    const cardNew = createCard(popupText.value, popupLink.value);
-    cardContainer.prepend(cardNew);
-    closePopup(popupCard);
   }
 
 function openPopup(popup) {
@@ -100,12 +96,13 @@ function handleSubmitCardsForm(evt) {
     link: popupLink.value
   }
   createNewCard(cardInfo);
+  closePopup(popupCard);
 }
 
 
 
 
-popupOpenProfile.addEventListener('click', () => {dataProfile(); openPopup(popupProfile)});
+popupOpenProfile.addEventListener('click', OpenProfilePopup);
 popupCloseProfile.addEventListener('click', () => {closePopup(popupProfile)});
 formElement.addEventListener('submit', handleSubmitProfileForm);
 popupOpenCards.addEventListener('click', () => {openPopup(popupCard)});
