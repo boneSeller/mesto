@@ -36,30 +36,32 @@
                 <div class="popup__content popup__content_profile">
                     <button class="popup__close popup__close_profile" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form popup__form_profile" name="popupForm">
-                        <input class="popup__user popup__user_name" type="text" name="userName">
-                        <input class="popup__user popup__user_job" type="text" name="userJob">
-                        <button class="popup__save popup__save_profile" type="submit">Сохранить</button>
+                    <form class="popup__form" name="formProfile" novalidate>
+                        <input class="popup__user popup__user_name" type="text" name="username">
+                        <!-- <span>Вы пропустили это поле</span> -->
+                        <input class="popup__user popup__user_job" type="text" name="userjob">
+                        <!-- <span class="error">Введите адрес сайта</span> -->
+                        <button disabled class="popup__save popup__save_profile" type="submit">Сохранить</button>
                     </form>
                 </div>
             </div>
         </section>
-        <section class="popup popup_cards">
+        <section id="popup-cards" class="popup popup_cards">
             <div class="popup__body popup__body_cards">
                 <div class="popup__content popup__content_cards">
                     <button class="popup__close popup__close_cards" type="button"></button>
                     <h2 class="popup__title popup__title_cards">Новое место</h2>
-                    <form class="popup__form popup__form_cards" name="popupForm">
-                        <input class="popup__user popup__user_title" type="text" name="cardsName"
+                    <form class="popup__form" name="formCards" novalidate>
+                        <input class="popup__user popup__user_title" type="text" name="usertitle"
                             placeholder="Название">
-                        <input class="popup__user popup__user_link" type="text" name="cardsLink"
+                        <input class="popup__user popup__user_link" type="text" name="userlink"
                             placeholder="Ссылка на картинку">
-                        <button class="popup__save popup__save_cards" type="submit">Создать</button>
+                        <button disabled class="popup__save popup__save_cards popup__save_disabled" type="submit">Создать</button>
                     </form>
                 </div>
             </div>
         </section>
-        <section class="popup popup_image">
+        <section id="popup-image" class="popup popup_image">
             <div class="popup__body">
                 <div class="popup__container">
                     <button class="popup__close popup__close_image" type="button"></button>
