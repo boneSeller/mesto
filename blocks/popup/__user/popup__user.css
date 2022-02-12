@@ -11,6 +11,10 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.popup__user:invalid {
+    border-bottom: 1px solid #FF0000;
+}
+
 .popup__user:first-child {
     margin: 54px 0 0;
 }
@@ -20,3 +24,4 @@
         margin: 70px 0 0;
     }
 }
+
