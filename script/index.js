@@ -89,7 +89,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-
+  unblockButton();
   document.removeEventListener('click', closeOverlay);
   document.removeEventListener('keydown', closeOverlayByEsc);
 }
@@ -107,7 +107,6 @@ function closeOverlayByEsc(evt) {
   if (evt.key == 'Escape') {
     const open = document.querySelector('.popup_opened');
     closePopup(open);
-    unblockButton();
   };
 }
 
@@ -150,8 +149,7 @@ popupCloseCards.addEventListener('click', () => { closePopup(popupCard) });
 popupCloseImage.addEventListener('click', () => { closePopup(popupImage) });
 formCard.addEventListener('submit',  handleSubmitCardsForm);
 
-//for git 0
-//for git 2.2.2 and for check
-//only for check 
+
+//for git 2.8
 
 
