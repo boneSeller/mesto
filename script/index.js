@@ -39,17 +39,6 @@ function handleSubmitProfileForm(evt) {
   closePopup(popupProfile);
 }
 
-function setSubmitButton(isFormValid, savebutton) {
-  if (isFormValid) {
-    savebutton.removeAttribute('disabled');
-    savebutton.classList.remove('popup__button_disabled')
-  }
-
-  else {
-    savebutton.setAttribute('disabled', true);
-    savebutton.classList.add('popup__button_disabled')
-  }
-}
 
 
 
@@ -129,22 +118,9 @@ function handleSubmitCardsForm(evt) {
   }
   formCard.reset();
   createNewCard(cardInfo);
-  setSubmitButton(false, cardButton);
   closePopup(popupCard);
 }
 
-
-
-
-formProfile.addEventListener('input', (evt) => {
-  const valida = inputName.value.length > 0 && inputJob.value.length > 0;
-  setSubmitButton(valida, profileButton);
-});
-
-formCard.addEventListener('input', (evt) => {
-  const valida = inputTittle.value.length > 0 && inputLink.value.length > 0;
-  setSubmitButton(valida, cardButton);
-});
 
 
 popupOpenProfile.addEventListener('click', OpenProfilePopup);
