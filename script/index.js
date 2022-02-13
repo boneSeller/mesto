@@ -107,6 +107,7 @@ function closeOverlayByEsc(evt) {
   if (evt.key == 'Escape') {
     const open = document.querySelector('.popup_opened');
     closePopup(open);
+    unblockButton();
   };
 }
 
@@ -127,6 +128,12 @@ const blockButton = () => {
   const popupButton = document.querySelector('#cardButton');
   popupButton.classList.add('popup__button_disabled');
   popupButton.setAttribute('disabled', true);
+}
+
+const unblockButton = () => {
+  const popupButton = document.querySelector('#profileButton')
+  popupButton.classList.remove('popup__button_disabled');
+  popupButton.removeAttribute('disabled');
 }
 
 popupOpenProfile.addEventListener('click', openProfilePopup);
