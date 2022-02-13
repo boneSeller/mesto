@@ -24,7 +24,7 @@ const inputTittle = formCard.elements.usertittle;
 const inputLink = formCard.elements.userlink;
 
 // PROFILE 
-const OpenProfilePopup = () => {
+const openProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(popupProfile)
@@ -98,13 +98,15 @@ function closePopup(popup) {
 
 function closeOverlay(evt) {
   if (evt.target.classList.contains('popup')) {
-    evt.target.classList.remove('popup_opened');
+    const open = document.querySelector('.popup_opened');
+    closePopup(open);
   }
 }
 
 function closeOverlayByEsc(evt) {
   if (evt.key == 'Escape') {
-    document.querySelector('.popup_opened').classList.remove('popup_opened');
+    const open = document.querySelector('.popup_opened');
+    closePopup(open);
   };
 }
 
@@ -122,7 +124,7 @@ function handleSubmitCardsForm(evt) {
 
 
 
-popupOpenProfile.addEventListener('click', OpenProfilePopup);
+popupOpenProfile.addEventListener('click', openProfilePopup);
 popupCloseProfile.addEventListener('click', () => { closePopup(popupProfile) });
 formProfile.addEventListener('submit', handleSubmitProfileForm);
 popupOpenCards.addEventListener('click', () => { openPopup(popupCard) });
