@@ -117,12 +117,17 @@ function handleSubmitCardsForm(evt) {
     name: inputTittle.value,
     link: inputLink.value
   }
+  blockButton();
   formCard.reset();
   createNewCard(cardInfo);
   closePopup(popupCard);
 }
 
-
+const blockButton = () => {
+  const popupButton = document.querySelector('#cardButton');
+  popupButton.classList.add('popup__button_disabled');
+  popupButton.setAttribute('disabled', true);
+}
 
 popupOpenProfile.addEventListener('click', openProfilePopup);
 popupCloseProfile.addEventListener('click', () => { closePopup(popupProfile) });
@@ -130,7 +135,7 @@ formProfile.addEventListener('submit', handleSubmitProfileForm);
 popupOpenCards.addEventListener('click', () => { openPopup(popupCard) });
 popupCloseCards.addEventListener('click', () => { closePopup(popupCard) });
 popupCloseImage.addEventListener('click', () => { closePopup(popupImage) });
-formCard.addEventListener('submit', handleSubmitCardsForm);
+formCard.addEventListener('submit',  handleSubmitCardsForm);
 
 //for git
 
