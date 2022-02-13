@@ -150,5 +150,7 @@ popupCloseCards.addEventListener('click', () => { closePopup(popupCard) });
 popupCloseImage.addEventListener('click', () => { closePopup(popupImage) });
 formCard.addEventListener('submit',  handleSubmitCardsForm);
 
-//for git 2 4 5 6 7 8 9 
+//for git 0
+//for git 2.2.2 and for check
+
 
