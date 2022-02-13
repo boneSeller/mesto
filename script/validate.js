@@ -66,28 +66,17 @@ const enableValidation = (object) => {
 
  const setEventListener = (formElement, config) => {
    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-   
-   formElement.addEventListener('input', () => setSubmitButton(formElement, config))
+   const buttonElement = formElement.querySelector(config.submitButtonSelector)
    inputList.forEach((inputElement) => {
      inputElement.addEventListener('input', () => {
        isValid(formElement, inputElement, config)
+       toggleButtonState(inputList, buttonElement);
      })
 
    })
-
-
  }
 
 
-
- const setSubmitButton = (formElement, config) => {
-    const button = formElement.querySelector(config.submitButtonSelector);
-
-    console.log(formElement.checkValidity());
-    button.disabled = !formElement.checkValidity();
-    button.classList.toggle(config.inactiveButtonClass, !formElement.checkValidity());
-  
- }
 
 enableValidation(formValidationConfig);
 
