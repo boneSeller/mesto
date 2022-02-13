@@ -131,7 +131,13 @@ const blockButton = () => {
 }
 
 const unblockButton = () => {
-  const popupButton = document.querySelector('#profileButton')
+  const popupButton = document.querySelector('#profileButton');
+  const popupErrorName = document.querySelector('.username-error');
+  const popupErrorJob = document.querySelector('.userjob-error');
+  inputName.classList.remove('popup__input_type_error');
+  inputJob.classList.remove('popup__input_type_error');
+  popupErrorName.classList.remove('popup__error_visible');
+  popupErrorJob.classList.remove('popup__error_visible');
   popupButton.classList.remove('popup__button_disabled');
   popupButton.removeAttribute('disabled');
 }
