@@ -2,7 +2,7 @@
 const popupOpenProfile = document.querySelector('.profile__edit');
 const popupProfile = document.querySelector('.popup_profile');
 const popupCloseProfile = document.querySelector('.popup__close_profile');
-const popupSaveProfile = document.querySelector('.popup__save_profile');
+const profileButton = document.querySelector('#profileButton');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const popupCard = document.querySelector('.popup_cards');
@@ -12,13 +12,13 @@ const popupCloseCards = document.querySelector('.popup__close_cards');
 const imageText = document.querySelector('.popup__text');
 const imagePopupUrl = document.querySelector('.popup__image');
 const textCards = document.querySelector('.cards__text');
-const savePopupCard = document.querySelector('.popup__save_cards');
+const cardButton = document.querySelector('#cardButton');
 const popupCloseImage = document.querySelector('.popup__close_image');
 const cardContainer = document.querySelector('.elements');
 const formProfile = document.forms.formProfile;
-const inputName = document.querySelector('.popup__user_name');
-const inputJob = document.querySelector('.popup__user_job');
-const popupFormCard = document.querySelector('.popup__form_cards')
+const inputName = formProfile.elements.username;
+const inputJob = formProfile.elements.userjob;
+const popupFormCard = document.forms.formCards;
 const formCard = document.forms.formCards;
 const inputTittle = formCard.elements.usertittle;
 const inputLink = formCard.elements.userlink;
@@ -35,19 +35,19 @@ function handleSubmitProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  setSubmitButton(false, popupSaveProfile);
+  setSubmitButton(false, profileButton);
   closePopup(popupProfile);
 }
 
 function setSubmitButton(isFormValid, savebutton) {
   if (isFormValid) {
     savebutton.removeAttribute('disabled');
-    savebutton.classList.remove('popup__save_disabled')
+    savebutton.classList.remove('popup__button_disabled')
   }
 
   else {
     savebutton.setAttribute('disabled', true);
-    savebutton.classList.add('popup__save_disabled')
+    savebutton.classList.add('popup__button_disabled')
   }
 }
 
@@ -129,7 +129,7 @@ function handleSubmitCardsForm(evt) {
   }
   formCard.reset();
   createNewCard(cardInfo);
-  setSubmitButton(false, savePopupCard);
+  setSubmitButton(false, cardButton);
   closePopup(popupCard);
 }
 
@@ -137,13 +137,13 @@ function handleSubmitCardsForm(evt) {
 
 
 formProfile.addEventListener('input', (evt) => {
-  const isValid = inputName.value.length > 0 && inputJob.value.length > 0;
-  setSubmitButton(isValid, popupSaveProfile);
+  const valida = inputName.value.length > 0 && inputJob.value.length > 0;
+  setSubmitButton(valida, profileButton);
 });
 
 formCard.addEventListener('input', (evt) => {
-  const isValid = inputTittle.value.length > 0 && inputLink.value.length > 0;
-  setSubmitButton(isValid, savePopupCard);
+  const valida = inputTittle.value.length > 0 && inputLink.value.length > 0;
+  setSubmitButton(valida, cardButton);
 });
 
 

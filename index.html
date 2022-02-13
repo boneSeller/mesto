@@ -37,11 +37,11 @@
                     <button class="popup__close popup__close_profile" type="button"></button>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form class="popup__form popup__form_profile" name="formProfile" novalidate>
-                        <input class="popup__user popup__user_name" type="text" minlength="2" maxlength="40" name="username" required>
-                        <span></span> 
-                        <input class="popup__user popup__user_job" type="text" minlength="2" maxlength="200" name="userjob" required>
-                        <span class="error"></span>
-                        <button disabled class="popup__save popup__save_profile" type="submit">Сохранить</button>
+                        <input id="username" class="popup__input" type="text" minlength="2" maxlength="40" name="username" required>
+                        <span class="popup__error username-error"></span> 
+                        <input id="userjob" class="popup__input" type="text" minlength="2" maxlength="200" name="userjob" required>
+                        <span class="popup__error userjob-error"></span>
+                        <button disabled id="profileButton" class="popup__button" type="submit">Сохранить</button>
                     </form>
                 </div>
             </div>
@@ -52,9 +52,11 @@
                     <button class="popup__close popup__close_cards" type="button"></button>
                     <h2 class="popup__title popup__title_cards">Новое место</h2>
                     <form class="popup__form popup__form_cards" name="formCards" novalidate>
-                        <input class="popup__user" type="text" minlength="2" maxlength="40" name="usertittle" placeholder="Название" required>
-                        <input class="popup__user" type="url" name="userlink" placeholder="Ссылка на картинку" required>
-                        <button disabled class="popup__save popup__save_cards popup__save_disabled"
+                        <input id="usertittle" class="popup__input" type="text" minlength="2" maxlength="40" name="usertittle" placeholder="Название" required>
+                        <span class="popup__error usertittle-error"></span>
+                        <input id="userlink" class="popup__input" type="url" name="userlink" placeholder="Ссылка на картинку" required>
+                        <span class="popup__error userlink-error"></span>
+                        <button disabled id="cardButton" class="popup__button popup__button_disabled"
                             type="submit">Создать</button>
                     </form>
                 </div>
