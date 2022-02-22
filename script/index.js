@@ -4,17 +4,12 @@ const popupProfile = document.querySelector('.popup_profile');
 const popupCloseProfile = document.querySelector('.popup__close_profile');
 const profileButton = document.querySelector('#profileButton');
 const profileName = document.querySelector('.profile__name');
+const popupCloseCards = document.querySelector('.popup__close_cards');
 const profileJob = document.querySelector('.profile__job');
 const popupCard = document.querySelector('.popup_cards');
-const popupImage = document.querySelector('.popup_image');
 const popupOpenCards = document.querySelector('.profile__button');
-const popupCloseCards = document.querySelector('.popup__close_cards');
-const imageText = document.querySelector('.popup__text');
-const imagePopupUrl = document.querySelector('.popup__image');
 const textCards = document.querySelector('.cards__text');
 const cardButton = document.querySelector('#cardButton');
-const popupCloseImage = document.querySelector('.popup__close_image');
-const cardContainer = document.querySelector('.elements');
 const formProfile = document.forms.formProfile;
 const inputName = formProfile.elements.username;
 const inputJob = formProfile.elements.userjob;
@@ -41,45 +36,12 @@ function handleSubmitProfileForm(evt) {
 
 
 
-function createCard(name, link) {
-  const templateCard = document.querySelector('#cards__template').content;
-  const cardNew = templateCard.querySelector('.cards').cloneNode(true);
-  const cardImage = cardNew.querySelector('.cards__image');
-  const cardText = cardNew.querySelector('.cards__text');
-  cardText.textContent = name;
-  const cardLike = cardNew.querySelector('.cards__like');
-  const deleteButton = cardNew.querySelector('.cards__trash');
 
 
-  cardImage.alt = name;
-  cardImage.src = link;
 
 
-  cardLike.addEventListener('click', (e) => {
-    e.target.classList.toggle('cards__like_active')
-  })
-
-  deleteButton.addEventListener('click', (e) => {
-    e.target.closest('.cards').remove();
-  })
-
-  cardImage.addEventListener('click', () => {
-    imageText.textContent = name;
-    imagePopupUrl.alt = name;
-    imagePopupUrl.src = link;
-    openPopup(popupImage);
-  })
-
-  return cardNew;
-}
-
-initialCards.forEach(createNewCard);
 
 
-function createNewCard(item) {
-  const cardNew = createCard(item.name, item.link);
-  cardContainer.prepend(cardNew);
-}
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -113,13 +75,9 @@ function closeOverlayByEsc(evt) {
 
 function handleSubmitCardsForm(evt) {
   evt.preventDefault();
-  const cardInfo = {
-    name: inputTittle.value,
-    link: inputLink.value
-  }
+  createNewCard();
   blockButton();
   formCard.reset();
-  createNewCard(cardInfo);
   closePopup(popupCard);
 }
 
