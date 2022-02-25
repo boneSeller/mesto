@@ -1,30 +1,59 @@
-// POPUP PROFILE
+
+import {Card, initialCards} from './Card.js';
+import { FormValidator , formValidationConfig } from './FormValidator.js';
+
+
+//POPUP
 const popupOpenProfile = document.querySelector('.profile__edit');
 const popupProfile = document.querySelector('.popup_profile');
 const popupCloseProfile = document.querySelector('.popup__close_profile');
-const profileButton = document.querySelector('#profileButton');
 const profileName = document.querySelector('.profile__name');
 const popupCloseCards = document.querySelector('.popup__close_cards');
 const profileJob = document.querySelector('.profile__job');
 const popupCard = document.querySelector('.popup_cards');
 const popupOpenCards = document.querySelector('.profile__button');
-const textCards = document.querySelector('.cards__text');
-const cardButton = document.querySelector('#cardButton');
+const popupImage = document.querySelector('.popup_image');
+const popupCloseImage = document.querySelector('.popup__close_image');
+const cardContainer = document.querySelector('.elements');
 const formProfile = document.forms.formProfile;
 const inputName = formProfile.elements.username;
 const inputJob = formProfile.elements.userjob;
-const popupFormCard = document.forms.formCards;
 const formCard = document.forms.formCards;
 const inputTittle = formCard.elements.usertittle;
 const inputLink = formCard.elements.userlink;
 
-// PROFILE 
+
+
+const editForm = new FormValidator(formValidationConfig, formProfile);
+editForm.enableValidation();
+
+const editCard = new FormValidator(formValidationConfig, formCard);
+editCard.enableValidation();
+
+// PROFILE
 const openProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
   openPopup(popupProfile)
 }
 
+const  createNewCard = () => {
+  const cardInfo = {
+    name: inputTittle.value,
+    link: inputLink.value
+  }
+
+  const cardNew = new Card(cardInfo, '#cards__template');
+  const cardElement = cardNew.generateCard();
+  cardContainer.prepend(cardElement);
+}
+
+
+initialCards.forEach((item) => {
+  const card = new Card(item, '#cards__template');
+  const cardElement = card.generateCard();
+  cardContainer.prepend(cardElement);
+});
 
 function handleSubmitProfileForm(evt) {
   evt.preventDefault();
@@ -32,15 +61,6 @@ function handleSubmitProfileForm(evt) {
   profileJob.textContent = inputJob.value;
   closePopup(popupProfile);
 }
-
-
-
-
-
-
-
-
-
 
 
 function openPopup(popup) {
