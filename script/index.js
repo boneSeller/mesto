@@ -1,6 +1,7 @@
-
-import {Card, initialCards} from './Card.js';
-import { FormValidator , formValidationConfig } from './FormValidator.js';
+import {Card} from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import {popupImage, popupCloseImage, initialCards, formValidationConfig} from './Constants.js';
+import {openPopup, closePopup, closeOverlay, closeOverlayByEsc, unblockButton} from './Utils.js';
 
 
 //POPUP
@@ -12,8 +13,6 @@ const popupCloseCards = document.querySelector('.popup__close_cards');
 const profileJob = document.querySelector('.profile__job');
 const popupCard = document.querySelector('.popup_cards');
 const popupOpenCards = document.querySelector('.profile__button');
-const popupImage = document.querySelector('.popup_image');
-const popupCloseImage = document.querySelector('.popup__close_image');
 const cardContainer = document.querySelector('.elements');
 const formProfile = document.forms.formProfile;
 const inputName = formProfile.elements.username;
@@ -36,6 +35,7 @@ const openProfilePopup = () => {
   inputJob.value = profileJob.textContent;
   openPopup(popupProfile)
 }
+
 
 const  createNewCard = () => {
   const cardInfo = {
@@ -63,36 +63,6 @@ function handleSubmitProfileForm(evt) {
 }
 
 
-function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('click', closeOverlay);
-  document.addEventListener('keydown', closeOverlayByEsc);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  unblockButton();
-  document.removeEventListener('click', closeOverlay);
-  document.removeEventListener('keydown', closeOverlayByEsc);
-}
-
-
-
-function closeOverlay(evt) {
-  if (evt.target.classList.contains('popup')) {
-    const open = document.querySelector('.popup_opened');
-    closePopup(open);
-  }
-}
-
-function closeOverlayByEsc(evt) {
-  if (evt.key == 'Escape') {
-    const open = document.querySelector('.popup_opened');
-    closePopup(open);
-  };
-}
-
-
 function handleSubmitCardsForm(evt) {
   evt.preventDefault();
   createNewCard();
@@ -107,17 +77,6 @@ const blockButton = () => {
   popupButton.setAttribute('disabled', true);
 }
 
-const unblockButton = () => {
-  const popupButton = document.querySelector('#profileButton');
-  const popupErrorName = document.querySelector('.username-error');
-  const popupErrorJob = document.querySelector('.userjob-error');
-  inputName.classList.remove('popup__input_type_error');
-  inputJob.classList.remove('popup__input_type_error');
-  popupErrorName.classList.remove('popup__error_visible');
-  popupErrorJob.classList.remove('popup__error_visible');
-  popupButton.classList.remove('popup__button_disabled');
-  popupButton.removeAttribute('disabled');
-}
 
 popupOpenProfile.addEventListener('click', openProfilePopup);
 popupCloseProfile.addEventListener('click', () => { closePopup(popupProfile) });
@@ -126,7 +85,6 @@ popupOpenCards.addEventListener('click', () => { openPopup(popupCard) });
 popupCloseCards.addEventListener('click', () => { closePopup(popupCard) });
 popupCloseImage.addEventListener('click', () => { closePopup(popupImage) });
 formCard.addEventListener('submit',  handleSubmitCardsForm);
-
 
 //for git 2.8
 
