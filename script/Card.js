@@ -1,5 +1,5 @@
-import {popupImage, popupCardImage, popupTextImage} from './Constants.js';
-import {openPopup, closePopup, closeOverlay, closeOverlayByEsc, unblockButton} from './Utils.js';
+import {popupImage, popupCardImage, popupTextImage} from './constants.js';
+import {openPopup, closeOverlay, closeOverlayByEsc} from './utils.js';
 
 
 export class Card {

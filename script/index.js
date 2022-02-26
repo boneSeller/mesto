@@ -1,7 +1,7 @@
 import {Card} from './Card.js';
 import { FormValidator } from './FormValidator.js';
-import {popupImage, popupCloseImage, initialCards, formValidationConfig} from './Constants.js';
-import {openPopup, closePopup, closeOverlay, closeOverlayByEsc, unblockButton} from './Utils.js';
+import {popupImage, popupCloseImage, initialCards, formValidationConfig} from './constants.js';
+import {openPopup, closePopup, closeOverlay, closeOverlayByEsc} from './utils.js';
 
 
 //POPUP
@@ -33,26 +33,20 @@ editCard.enableValidation();
 const openProfilePopup = () => {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  openPopup(popupProfile)
+  editForm.resetErrors();
+  openPopup(popupProfile);
 }
 
 
-const  createNewCard = () => {
-  const cardInfo = {
-    name: inputTittle.value,
-    link: inputLink.value
-  }
-
-  const cardNew = new Card(cardInfo, '#cards__template');
+function createNewCard(info)  {
+  const cardNew = new Card(info, '#cards__template');
   const cardElement = cardNew.generateCard();
   cardContainer.prepend(cardElement);
 }
 
 
 initialCards.forEach((item) => {
-  const card = new Card(item, '#cards__template');
-  const cardElement = card.generateCard();
-  cardContainer.prepend(cardElement);
+  createNewCard(item);
 });
 
 function handleSubmitProfileForm(evt) {
@@ -65,27 +59,24 @@ function handleSubmitProfileForm(evt) {
 
 function handleSubmitCardsForm(evt) {
   evt.preventDefault();
-  createNewCard();
-  blockButton();
-  formCard.reset();
+  const cardInfo = {
+    name: inputTittle.value,
+    link: inputLink.value
+  }
+  createNewCard(cardInfo);
   closePopup(popupCard);
 }
 
-const blockButton = () => {
-  const popupButton = document.querySelector('#cardButton');
-  popupButton.classList.add('popup__button_disabled');
-  popupButton.setAttribute('disabled', true);
-}
 
 
-popupOpenProfile.addEventListener('click', openProfilePopup);
+
+popupOpenProfile.addEventListener('click',() => { openProfilePopup()});
 popupCloseProfile.addEventListener('click', () => { closePopup(popupProfile) });
 formProfile.addEventListener('submit', handleSubmitProfileForm);
-popupOpenCards.addEventListener('click', () => { openPopup(popupCard) });
+popupOpenCards.addEventListener('click', () => { formCard.reset(); openPopup(popupCard); editCard.resetErrors(); });
 popupCloseCards.addEventListener('click', () => { closePopup(popupCard) });
 popupCloseImage.addEventListener('click', () => { closePopup(popupImage) });
 formCard.addEventListener('submit',  handleSubmitCardsForm);
 
-//for git 2.8
 
 
