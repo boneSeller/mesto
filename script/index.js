@@ -41,12 +41,17 @@ const openProfilePopup = () => {
 function createNewCard(info)  {
   const cardNew = new Card(info, '#cards__template');
   const cardElement = cardNew.generateCard();
-  cardContainer.prepend(cardElement);
+
+  return cardElement;
+}
+
+function addNewCard(info) {
+  cardContainer.prepend(createNewCard(info));
 }
 
 
 initialCards.forEach((item) => {
-  createNewCard(item);
+  addNewCard(item);
 });
 
 function handleSubmitProfileForm(evt) {
@@ -63,7 +68,7 @@ function handleSubmitCardsForm(evt) {
     name: inputTittle.value,
     link: inputLink.value
   }
-  createNewCard(cardInfo);
+  addNewCard(cardInfo);
   closePopup(popupCard);
 }
 
