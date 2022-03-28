@@ -1,19 +1,19 @@
 export class Popup {
     constructor(popup) {
-        this._popup = document.querySelector(popup);
-        this._popupCloseButton = this._popoup.querySelector('.popup__close');
+        this._popup = popup;
+        this._popupCloseButton = this._popup.querySelector('.popup__close');
     }
 
     // Открытие попапа
     open() {
         this._popup.classList.add('popup_opened');
-        document.addEventListener('keydown', this._handleEscClose);
+        document.addEventListener('keydown', (e) => {this._handleEscClose(e)});
     }
 
     //Закрытие попапа
     close() {
         this._popup.classList.remove('popup_opened');
-        document.removeEventListener('keydown', this._handleEscClose);
+        document.removeEventListener('keydown',(e) => {this._handleEscClose(e)});
     }
 
     // Функция закрытия при нажатии кнопки ESC
@@ -25,7 +25,7 @@ export class Popup {
 
     //Функция закрытия по оверлэю
     _handleOverlayClose(evt) {
-        if(evt.target.classList.contains('popup')) {
+        if (evt.target.classList.contains('popup_opened')) {
             this.close();
         }
     }
@@ -33,7 +33,7 @@ export class Popup {
     
     //Добавляем слушатель событий
     setEventListeners() {
-        this._popupCloseButton.addEventListener('click', this.close());
-        this._popup.addEventListener('click', this._handleOverlayClose);
+        this._popupCloseButton.addEventListener('click', () => {this.close()});
+        this._popup.addEventListener('click', (evt) => { this._handleOverlayClose(evt)});
     }
 }

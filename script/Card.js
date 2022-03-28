@@ -1,12 +1,12 @@
 import {popupImage, popupCardImage, popupTextImage} from './constants.js';
-import {openPopup, closeOverlay, closeOverlayByEsc} from './utils.js';
 
 
 export class Card {
-    constructor(data, cardSelector) {
+    constructor(data, cardSelector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate() {
@@ -17,12 +17,6 @@ export class Card {
         return cardElement;
     }
 
-    _handleOpenPopup() {
-        popupCardImage.src = this._link;
-        popupCardImage.alt = this._name;
-        popupTextImage.textContent = this._name;
-        openPopup(popupImage);
-    }
 
 
     _handleClickLike = () => {
@@ -35,8 +29,8 @@ export class Card {
 
     _setEventListener() {
         this._cardImage.addEventListener('click', () => {
-            this._handleOpenPopup();
-        });
+            this._handleCardClick(this._name, this._link)
+        })
 
         this._likeButton.addEventListener('click', () => {
             this._handleClickLike();

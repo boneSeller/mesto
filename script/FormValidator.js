@@ -45,7 +45,7 @@ export class FormValidator {
             this._buttonElement.setAttribute('disabled', true);
         }
 
-        _unblockButton = () => {
+        unblockButton = () => {
             const {inactiveButtonClass} = this._settings;
             this._buttonElement.classList.remove(inactiveButtonClass);
             this._buttonElement.disabled = false;
@@ -56,7 +56,7 @@ export class FormValidator {
             if (this._hasInvalidInput()) {
                 this.blockButton();
             } else {
-                this._unblockButton();
+                this.unblockButton();
             }
         }
 
