@@ -2,4 +2,9 @@
   background-color: white;
   color: #000000;
   opacity: 0.2;
+  cursor: default;
+}
+
+.popup__button_disabled:hover {
+  opacity: 0.2;
 }

@@ -30,7 +30,7 @@ import {UserInfo} from './UserInfo.js';
 import {Section} from './Section.js'; 
 
 
-const popupWithImage = new PopupWithImage(popupImage);
+const popupWithImage = new PopupWithImage('.popup_image');
 
 popupWithImage.setEventListeners();
 
@@ -54,10 +54,13 @@ const cardList = new Section({
 cardList.renderItems();
 
 
-const cardPopup = new PopupWithForm(popupCard, (item) => {
-  cardList.addItem(createNewCard(item));
+const cardPopup = new PopupWithForm('.popup_cards', () => {
+  const userInfo = {
+    name: inputTittle.value,
+    link: inputLink.value
+  }
+  cardList.addItem(createNewCard(userInfo));
   cardPopup.close();
-  console.log(cardPopup)
   });
 
 
@@ -67,10 +70,10 @@ cardPopup.setEventListeners();
 
 
 const userInfoProfile = new UserInfo({
-  name: profileName,
-  description: profileJob});
+  name: '.profile__name',
+  description: '.profile__job'});
 
-const popupWithForm = new PopupWithForm(popupProfile, () => {
+const popupWithForm = new PopupWithForm('.popup_profile', () => {
   userInfoProfile.setUserInfo(inputName, inputJob)
 });
 
@@ -78,6 +81,8 @@ popupWithForm.setEventListeners();
 
 popupOpenCards.addEventListener('click', () => {
     cardPopup.open();
+    editCard.blockButton();
+    editCard.resetErrors();
 } )
 
 popupOpenProfile.addEventListener('click',() => {
@@ -85,6 +90,8 @@ popupOpenProfile.addEventListener('click',() => {
   inputName.value = user.name;
   inputJob.value = user.description;
   popupWithForm.open();
+  editForm.unblockButton();
+  editForm.resetErrors();
 });
 
 

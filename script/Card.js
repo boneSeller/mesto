@@ -1,5 +1,3 @@
-import {popupImage, popupCardImage, popupTextImage} from './constants.js';
-
 
 export class Card {
     constructor(data, cardSelector, handleCardClick) {
@@ -24,7 +22,8 @@ export class Card {
     }
 
     _handleClickTrash = () => {
-        this._deleteButton.closest('.cards').remove();
+        this._element.remove();
+        this._element = null;
     }
 
     _setEventListener() {
