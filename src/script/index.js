@@ -1,3 +1,5 @@
+
+import './../page/index.css';
 import {Card} from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import {
@@ -28,6 +30,7 @@ import {PopupWithForm} from './PopupWithForm.js';
 import {PopupWithImage} from './PopupWithImage.js';
 import {UserInfo} from './UserInfo.js';
 import {Section} from './Section.js'; 
+
 
 
 const popupWithImage = new PopupWithImage('.popup_image');
