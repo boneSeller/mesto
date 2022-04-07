@@ -6,7 +6,9 @@
 .header__logo{height:33px;margin:0;padding:0;width:142px}@media screen and (max-width:1279px){.header__logo{height:24.4px;margin:0;padding:0;width:103.74px}}
 .profile{align-items:center;display:flex;flex-flow:row;justify-content:space-between;margin:40px 0 0;padding:0}@media screen and (max-width:1279px){.profile{flex-flow:column;margin:42px 0 0}}
 .profile__info{display:flex;flex-flow:row;margin:0;padding:0}@media screen and (max-width:1279px){.profile__info{align-items:center;flex-flow:column;justify-content:center;min-width:282px}}
+.profile__container{align-items:center;display:flex;justify-content:center;margin:0;max-width:120px;padding:0;position:relative}
 .profile__avatar{border-radius:50%;margin:0 30px 0 0;padding:0}@media screen and (max-width:1279px){.profile__avatar{height:120px;margin:0;padding:0;width:120px}}
+.profile__avatar__edit{background-color:rgba(0,0,0,.8);background-image:url(a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;background-size:26px;border:none;cursor:pointer;height:100%;margin:0 30px 0 0;opacity:0;padding:0;position:absolute;transition:visibility .8s,opacity .8s linear;width:100%}.profile__avatar__edit:hover{opacity:1}@media screen and (max-width:1279px){.profile__avatar__edit{height:120px;margin:0;padding:0;width:120px}}
 .profile__description{display:grid;grid-template-columns:1fr 24px;margin:0;padding:0}
 .profile__name{color:#fff;font-family:Inter,Arial,sans-serif;font-size:42px;font-style:normal;font-weight:500;line-height:48px;margin:20px 0 0;max-width:336px;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:1279px){.profile__name{font-size:27px;justify-self:center;line-height:33px;margin:26px 0 0;text-align:center;width:100%}}
 .profile__job{color:#fff;font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:10px 0 0;max-width:336px;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}@media screen and (max-width:1279px){.profile__job{font-size:14px;line-height:17px;text-align:center;width:100%}}
@@ -24,6 +26,7 @@
 .popup__image{max-height:75vh;width:100%}
 .popup__text{color:#fff;font-family:Inter,Arial,sans-serif;font-size:12px;font-style:normal;font-weight:400;line-height:15px;margin:10px 0 0;padding:0}
 .popup__button_disabled{background-color:#fff;color:#000;cursor:default;opacity:.2}.popup__button_disabled:hover{opacity:.2}
+.popup__button_delete{margin:38px 0 0;padding:0}
 .popup__input_type_error{border-bottom:1px solid red}
 .popup__error{color:red;display:block;font-family:Inter;font-size:12px;font-style:normal;font-weight:400;line-height:15px;margin:5px 0 0;min-height:30px;padding:0;visibility:hidden}
 .popup__error_visible{visibility:visible}
@@ -32,7 +35,9 @@
 .cards__image{cursor:pointer;height:282px;max-width:100%;-o-object-fit:cover;object-fit:cover;width:282px}
 .cards__description{background-color:#fff;display:flex;justify-content:space-between;margin:25px 15px 0 21px;padding:0;width:246px}
 .cards__text{font-family:Inter,Arial,sans-serif;font-size:24px;font-style:normal;font-weight:900;line-height:29px;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
-.cards__like{background-color:#fff;background-image:url(77ea1611be45fdeca1cc.svg);background-position:50%;background-repeat:no-repeat;background-size:100%;border:none;cursor:pointer;height:100%;margin:0 5px 0 0;min-width:22px;padding:0}.cards__like:hover{background-image:#000;opacity:.5}
+.cards__container{align-items:center;display:flex;flex-flow:column;margin:0 5px 0 0;min-height:35px;padding:0}
+.cards__like{background-color:#fff;background-image:url(77ea1611be45fdeca1cc.svg);background-position:50%;background-repeat:no-repeat;background-size:100%;border:none;cursor:pointer;margin:0;min-height:19px;min-width:22px;padding:0}.cards__like:hover{background-image:#000;opacity:.5}
+.cards__like__counter{color:#000;font-family:Inter,Arial,sans-serif;font-size:13px;font-style:normal;font-weight:400;line-height:16px;margin:3px 0 0;padding:0;text-align:center}
 .cards__like_active{background-image:url(67ecc587ba5451288247.jpg)}
 .cards__trash{background-color:rgba(255,255,0,0);background-image:url(823b0cf1b0b7e9cb7cad.svg);background-position:50%;background-repeat:no-repeat;background-size:contain;border:none;cursor:pointer;height:19px;margin:0;padding:0;position:absolute;right:20px;top:20px;width:18px}.cards__trash:hover{opacity:.5}
 .footer{margin:0;padding:0}
