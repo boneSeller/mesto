@@ -4,13 +4,6 @@ export class Popup {
         this._handleEscClose = this._handleEscClose.bind(this);
     }
 
-    showLoading(isLoading) {
-        if (isLoading) {
-          this._popupButton.textContent = 'Сохранение...';
-        } else {
-          this._popupButton.textContent = this._buttonText;
-        }
-      }
 
     open() {
         this._popup.classList.add('popup_opened');
@@ -39,7 +32,11 @@ export class Popup {
     
     //Добавляем слушатель событий
     setEventListeners() {
-        this._popup.querySelector(".popup__close").addEventListener('click', () => {this.close()});
-        this._popup.addEventListener('click', (evt) => { this._handleOverlayClose(evt)});
-    }
+        this._popup.addEventListener('click', (evt) => {
+          if (evt.target.classList.contains('popup_opened') ||
+          evt.target.classList.contains('popup__close')) {
+            this.close();
+          };
+        });
+      };
 }

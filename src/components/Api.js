@@ -1,7 +1,7 @@
 export class Api{
-  constructor(data){
-    this._url = data.url;
-    this._headers = data.headers;
+  constructor({url, headers}){
+    this._url = url;
+    this._headers = headers;
   }
 
   _checkResponse(res) {
@@ -19,13 +19,13 @@ export class Api{
     .then(this._checkResponse);
   }
 
-  setUserInfo(userData) {
+  setUserInfo(item) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: userData.name,
-        about: userData.about
+        name: item.name,
+        about: item.about
       })
     })
     .then(this._checkResponse);

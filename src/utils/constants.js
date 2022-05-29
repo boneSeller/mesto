@@ -60,3 +60,4 @@ export const avatarPopup = document.querySelector('#popup-avatar');
 export const avatar = document.querySelector('.profile__avatar');
 export const formAvatar = document.forms.formAvatar;
 export const deletePopup = document.querySelector("#popup-delete");
+export const inputsPopup = document.querySelectorAll('.popup__input');

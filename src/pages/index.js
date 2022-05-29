@@ -3,7 +3,6 @@ import './index.css';
 import { Card } from './../components/Card.js';
 import { FormValidator } from './../components/FormValidator.js';
 import {
-  initialCards,
   formValidationConfig,
   popupOpenProfile,
   popupOpenCards,
@@ -18,7 +17,6 @@ import {
   avatarPopup,
   avatar,
   formAvatar,
-  deletePopup
 } from '../utils/constants.js';
 import { Popup } from './../components/Popup.js';
 import { PopupWithForm } from './../components/PopupWithForm.js';
@@ -115,9 +113,9 @@ const popupAddCard = new PopupWithForm('#popup-cards', (inputsValues) => {
   popupAddCard.showLoading(true);
   api.addUserCard(inputsValues)
     .then((data) => {
-      initialCardsList.addItem(createCard(data));
+      initialCardsList.addItem(createNewCard(data));
       popupAddCard.close();
-      formCard.resetErrors();
+      editCard.resetErrors();
     })
     .catch((err) => {
       console.log(err);
