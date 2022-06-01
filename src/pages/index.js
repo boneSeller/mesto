@@ -104,7 +104,7 @@ const popupAddCard = new PopupWithForm('#popup-cards', (data) => {
       editCard.resetErrors();
     })
     .catch((err) => {
-      console.log(`Ошибка добавление карточки: ${err}`);
+      console.log(err);
     })
     .finally(() => {
       popupAddCard.showLoading(false);
