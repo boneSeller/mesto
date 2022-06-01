@@ -1,7 +1,7 @@
 export class Api{
-  constructor({url, headers}){
-    this._url = url;
-    this._headers = headers;
+  constructor(data){
+    this._url = data.url;
+    this._headers = data.headers;
   }
 
   _checkResponse(res) {
@@ -19,13 +19,13 @@ export class Api{
     .then(this._checkResponse);
   }
 
-  setUserInfo(item) {
+  setUserInfo(userData) {
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: item.name,
-        about: item.about
+        name: userData.name,
+        about: userData.about
       })
     })
     .then(this._checkResponse);
@@ -39,13 +39,13 @@ export class Api{
     .then(this._checkResponse);
   }
 
-  addUserCard(data) {
+  addUserCard({name, link}) {
     return fetch(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.name,
-        link: data.link
+        name,
+        link
       })
     })
       .then(this._checkResponse);

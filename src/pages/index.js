@@ -14,8 +14,6 @@ import {
   inputTittle,
   inputLink,
   avatarEdit,
-  avatarPopup,
-  avatar,
   formAvatar,
 } from '../utils/constants.js';
 import { Popup } from './../components/Popup.js';
@@ -31,7 +29,8 @@ const api = new Api({
   headers: {
       authorization: '12c24169-53aa-4b9e-a065-7c4554a7ca18',
       'Content-Type': 'application/json'
-}});
+    }
+  });
 
 let userId;
 
@@ -43,19 +42,6 @@ const userInfo = new UserInfo({
 
 const popupWithImage = new PopupWithImage('.popup_image');
 const popupDelete = new PopupWithDelete('#popup-delete');
-
-
-
-const editForm = new FormValidator(formValidationConfig, formProfile);
-editForm.enableValidation();
-
-const editCard = new FormValidator(formValidationConfig, formCard);
-editCard.enableValidation();
-
-const editAvatar = new FormValidator(formValidationConfig, formAvatar);
-editAvatar.enableValidation();
-
-
 
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -109,20 +95,20 @@ const initialCardsList = new Section({
   }
 }, cardContainer);
 
-const popupAddCard = new PopupWithForm('#popup-cards', (inputsValues) => {
+const popupAddCard = new PopupWithForm('#popup-cards', (data) => {
   popupAddCard.showLoading(true);
-  api.addUserCard(inputsValues)
+  api.addUserCard(data)
     .then((data) => {
       initialCardsList.addItem(createNewCard(data));
       popupAddCard.close();
       editCard.resetErrors();
     })
     .catch((err) => {
-      console.log(err);
+      console.log(`Ошибка добавление карточки: ${err}`);
     })
     .finally(() => {
       popupAddCard.showLoading(false);
-    })
+    });
 });
 
 
@@ -175,7 +161,6 @@ const avatarEditPopup = new PopupWithForm('#popup-avatar', (inputsValues) => {
 });
 
 avatarEdit.addEventListener('click', () => {
-  avatarEditPopup.showLoading(false);
   editAvatar.resetErrors();
   avatarEditPopup.open();
 });
@@ -186,7 +171,12 @@ popupEditProfile.setEventListeners();
 popupDelete.setEventListeners();
 avatarEditPopup.setEventListeners();
 
-
+const editForm = new FormValidator(formValidationConfig, formProfile);
+editForm.enableValidation();
+const editCard = new FormValidator(formValidationConfig, formCard);
+editCard.enableValidation();
+const editAvatar = new FormValidator(formValidationConfig, formAvatar);
+editAvatar.enableValidation();
 
 
 

@@ -78,6 +78,7 @@ export class Card {
     
         if (!(this._ownerId === this._userId)) {
          this._deleteButton.classList.add('cards__trash');
+         this._element.querySelector('.cards__trash').style.display = 'none';
         }
     
         if (this._likes.find((obj) => this._userId === obj._id)) {
