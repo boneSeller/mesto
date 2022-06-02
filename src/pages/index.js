@@ -101,7 +101,6 @@ const popupAddCard = new PopupWithForm('#popup-cards', (data) => {
     .then((data) => {
       initialCardsList.addItem(createNewCard(data));
       popupAddCard.close();
-      editCard.resetErrors();
     })
     .catch((err) => {
       console.log(err);
@@ -150,7 +149,6 @@ const avatarEditPopup = new PopupWithForm('#popup-avatar', (inputsValues) => {
     .then((data) => {
       userInfo.setUserAvatar(data);
       avatarEditPopup.close();
-      editAvatar.resetErrors();
     })
     .catch((err) => {
       console.log(err);

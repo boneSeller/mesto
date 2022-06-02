@@ -10,7 +10,7 @@ export class PopupWithDelete extends Popup {
 
 showLoading(isLoading) {
   if (isLoading) {
-    this._popupButton.textContent = 'Сохранение...';
+    this._popupButton.textContent = 'Удаление...';
   } else {
     this._popupButton.textContent = this._buttonText;
   }

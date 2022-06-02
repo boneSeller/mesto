@@ -12,6 +12,7 @@ export class Card {
     this._id = data._id;
     this._ownerId = data.owner._id;
     this._likes = data.likes;
+    
     }
 
     _getTemplate() {
@@ -21,12 +22,11 @@ export class Card {
 
 
     putLike() {
-        const count = this._element.querySelector('.cards__like__counter');
         if (!this._likeButton.classList.contains('cards__like_active')) {
           this._api.putLike(this._id)
             .then((data) => {
               this._likeButton.classList.add('cards__like_active');
-              count.textContent = data.likes.length;
+              this._count.textContent = data.likes.length;
             })
             .catch((err) => {
               console.log(err);
@@ -35,7 +35,7 @@ export class Card {
             this._api.deleteLike(this._id)
               .then((data) => {
                 this._likeButton.classList.remove('cards__like_active');
-                count.textContent = data.likes.length;
+                this._count.textContent = data.likes.length;
               })
               .catch((err) => {
                 console.log(err);
@@ -68,13 +68,14 @@ export class Card {
 
       generateCard() {
         this._element = this._getTemplate();
+        this._count = this._element.querySelector('.cards__like__counter');
         this._setEventListeners();
     
         this._cardText.textContent = this._name;
         const cardImage = this._cardImage;
         cardImage.src = this._link;
         cardImage.alt = this._name;
-        this._element.querySelector('.cards__like__counter').textContent = this._likes.length;
+        this._count.textContent = this._likes.length;
     
         if (!(this._ownerId === this._userId)) {
          this._deleteButton.classList.add('cards__trash');
